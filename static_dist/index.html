@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的书法成长之路</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/v4-shims.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B4513',
+                        secondary: '#D2691E',
+                        accent: '#F4A460',
+                        dark: '#2F1B14',
+                        light: '#FFF8DC'
+                    },
+                    fontFamily: {
+                        chinese: ['Microsoft YaHei', 'SimHei', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .beitie-card {
+                transition: all 0.3s ease;
+                transform: translateY(0);
+            }
+            .beitie-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+            .card-image {
+                height: 200px;
+                object-fit: cover;
+                transition: transform 0.3s ease;
+            }
+            .beitie-card:hover .card-image {
+                transform: scale(1.05);
+            }
+        }
+    </style>
+</head>
+<body class="bg-light font-chinese min-h-screen">
+    <!-- 导航栏 -->
+    <nav class="bg-primary shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <i class="fa fa-book text-2xl text-light mr-3"></i>
+                    <span class="text-xl font-bold text-light">我的书法成长之路</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-light hover:text-accent transition-colors">首页</a>
+<!--                    <a href="#" class="text-light hover:text-accent transition-colors">分类</a>-->
+<!--                    <a href="#" class="text-light hover:text-accent transition-colors">关于</a>-->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- 页面标题 -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-dark mb-4">我的碑帖</h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                汇聚历代书法名家经典碑帖，感受中华书法艺术的博大精深
+            </p>
+        </div>
+
+        <!-- 碑帖卡片网格 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            
+                <div class="beitie-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <a href="http://www.hanmofengya.com/Index.html" target="_blank" rel="noopener noreferrer" class="block">
+                        <img src="https://aka.doubaocdn.com/s/MBLy1w2QQG" alt="碑帖合集" class="card-image w-full">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-dark mb-2">碑帖合集</h3>
+                            <p class="text-gray-600">  </p>
+                        </div>
+                    </a>
+                </div>
+            
+                <div class="beitie-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <a href="https://www.sohu.com/a/288899061_100118760" target="_blank" rel="noopener noreferrer" class="block">
+                        <img src="http://5b0988e595225.cdn.sohucs.com/images/20190114/870fb57263ce45a599c419b3b0b47796.jpeg" alt="《隶书千字文》" class="card-image w-full">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-dark mb-2">《隶书千字文》</h3>
+                            <p class="text-gray-600">清 席夔</p>
+                        </div>
+                    </a>
+                </div>
+            
+                <div class="beitie-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <a href="https://www.shufazidian.com/ziliao/41429.html" target="_blank" rel="noopener noreferrer" class="block">
+                        <img src="https://b.sfzd.cn/upload/20150208/14233646785957.jpg" alt="《宣示表》" class="card-image w-full">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-dark mb-2">《宣示表》</h3>
+                            <p class="text-gray-600">魏 钟繇</p>
+                        </div>
+                    </a>
+                </div>
+            
+                <div class="beitie-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <a href="https://www.sohu.com/a/710839137_99985427" target="_blank" rel="noopener noreferrer" class="block">
+                        <img src="https://p9.itc.cn/images01/20230811/f5c7939016bd484fa5fe58025d172a5a.jpeg" alt="《黄庭经》" class="card-image w-full">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-dark mb-2">《黄庭经》</h3>
+                            <p class="text-gray-600">晋 王羲之</p>
+                        </div>
+                    </a>
+                </div>
+            
+                <div class="beitie-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <a href="https://www.sohu.com/a/588758958_121124765" target="_blank" rel="noopener noreferrer" class="block">
+                        <img src="	https://p3.itc.cn/q_70/images03/20220928/d7d204b18f0b4924a35be8c9170ffd59.jpeg" alt="《草堂十志》" class="card-image w-full">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-dark mb-2">《草堂十志》</h3>
+                            <p class="text-gray-600">明 文徵明</p>
+                        </div>
+                    </a>
+                </div>
+            
+                <div class="beitie-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <a href="https://www.sohu.com/a/339951625_227108" target="_blank" rel="noopener noreferrer" class="block">
+                        <img src="https://5b0988e595225.cdn.sohucs.com/images/20190910/933872c88e754f0e9412d56eb1975186.jpeg" alt="《琴赋》" class="card-image w-full">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-dark mb-2">《琴赋》</h3>
+                            <p class="text-gray-600">明 文徵明</p>
+                        </div>
+                    </a>
+                </div>
+            
+                <div class="beitie-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <a href="https://zhuanlan.zhihu.com/p/667313472" target="_blank" rel="noopener noreferrer" class="block">
+                        <img src="https://pic2.zhimg.com/v2-85f2a96bf277403f351bcd5ea79aa0f5_1440w.jpg" alt="《落花诗册》" class="card-image w-full">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-dark mb-2">《落花诗册》</h3>
+                            <p class="text-gray-600">明 文徵明</p>
+                        </div>
+                    </a>
+                </div>
+            
+                <div class="beitie-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <a href="https://www.toutiao.com/article/7215876513542636089/" target="_blank" rel="noopener noreferrer" class="block">
+                        <img src="https://static.lingyinsi.org/attachment/upload/2021/11/15/194313.jpeg" alt="《般若波罗蜜多心经》" class="card-image w-full">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-dark mb-2">《般若波罗蜜多心经》</h3>
+                            <p class="text-gray-600">唐 欧阳询</p>
+                        </div>
+                    </a>
+                </div>
+            
+        </div>
+
+        <!-- 加载更多按钮 -->
+        <div class="text-center mt-12">
+            <button class="bg-secondary hover:bg-primary text-white px-8 py-3 rounded-lg font-medium transition-colors">
+                加载更多碑帖
+            </button>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-light py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">我的书法成长之路</h3>
+                    <p class="text-gray-300">
+                        致力于传承和弘扬中华书法艺术，为书法爱好者提供高清碑帖资源。
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">快速链接</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-accent transition-colors">首页</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">碑帖分类</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">书法知识</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">联系我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">联系我们</h3>
+                    <div class="space-y-2 text-gray-300">
+                        <p><i class="fa fa-envelope mr-2"></i> contact@beitie.com</p>
+                        <p><i class="fa fa-phone mr-2"></i> +86 123 4567 8910</p>
+                        <p><i class="fa fa-map-marker mr-2"></i> 北京市朝阳区书法大厦</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2026 我的书法成长之路</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 平滑滚动效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 加载更多功能
+        const loadMoreButton = document.querySelector('button');
+        loadMoreButton.addEventListener('click', function() {
+            // 这里可以添加AJAX请求来加载更多碑帖数据
+            this.innerHTML = '<i class="fa fa-spinner fa-spin mr-2"></i> 加载中...';
+            
+            // 模拟加载延迟
+            setTimeout(() => {
+                this.innerHTML = '加载更多碑帖';
+                alert('已加载所有碑帖');
+            }, 1500);
+        });
+
+        // 图片懒加载
+        const images = document.querySelectorAll('img');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.classList.add('opacity-100');
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => {
+            img.classList.add('opacity-0', 'transition-opacity', 'duration-500');
+            imageObserver.observe(img);
+        });
+    </script>
+</body>
+</html>

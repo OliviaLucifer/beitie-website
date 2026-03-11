@@ -1,11 +1,9 @@
-# from flask import Flask, render_template
-# import os
-#
-# app = Flask(__name__)
 from flask import Flask, render_template
+import os
+from shutil import copytree, copy2
 
+# 初始化Flask应用（和app.py保持一致）
 app = Flask(__name__)
-
 
 # 碑帖数据
 beitie_data = [
@@ -62,25 +60,59 @@ beitie_data = [
         "id": 8,
         "name": "《般若波罗蜜多心经》",
         "calligrapher": "唐 欧阳询",
-        "image": "https://img.zitiewang.com/file/202503/1742440797433641.jpg",
+        "image": "https://static.lingyinsi.org/attachment/upload/2021/11/15/194313.jpeg",
         "url": "https://www.toutiao.com/article/7215876513542636089/"
     }
 
 ]
 
-# @app.route('/')
-# def index():
-#     return render_template('index.html', beitie_list=beitie_data)
 
-
-# if __name__ == '__main__':
-#     app.run(debug=True, host='0.0.0.0', port=5000)
-
+# 首页路由（复制app.py中的index路由，确保一致）
 @app.route('/')
 def index():
     return render_template('index.html', beitie_list=beitie_data)
 
 
+# 核心：手动生成静态文件（无需复杂命令，执行该脚本即可）
+def build_static_files():
+    # 定义静态文件输出目录（和之前一致，仍为static_dist）
+    output_dir = 'static_dist'
+    # 若目录已存在，先删除（避免旧文件干扰）
+    if os.path.exists(output_dir):
+        import shutil
+        shutil.rmtree(output_dir)
+    # 创建输出目录
+    os.makedirs(output_dir)
+
+    # 生成首页index.html文件
+    with open(os.path.join(output_dir, 'index.html'), 'w', encoding='utf-8') as f:
+        f.write(app.test_client().get('/').data.decode('utf-8'))
+
+    # 复制templates文件夹中的其他HTML文件（若有）
+    templates_dir = 'templates'
+    if os.path.exists(templates_dir):
+        for root, dirs, files in os.walk(templates_dir):
+            for file in files:
+                if file.endswith('.html'):
+                    # 生成对应路由的静态文件（若有其他路由，可参考index路由添加）
+                    route = '/' + file.replace('.html', '') if file != 'index.html' else '/'
+                    try:
+                        html_content = app.test_client().get(route).data.decode('utf-8')
+                        target_path = os.path.join(output_dir, file)
+                        with open(target_path, 'w', encoding='utf-8') as f:
+                            f.write(html_content)
+                    except:
+                        # 若有异常，直接复制文件（避免报错）
+                        copy2(os.path.join(root, file), output_dir)
+
+    # 复制static文件夹（CSS、JS、图片等静态资源）
+    static_dir = 'static'
+    if os.path.exists(static_dir):
+        copytree(static_dir, os.path.join(output_dir, 'static'))
+
+    print("静态文件生成完成！已保存到 static_dist 文件夹")
+
+
+# 执行静态化
 if __name__ == '__main__':
-    # 本地运行代码（保留，用于本地调试网站）
-    app.run(debug=True)
+    build_static_files()
